@@ -1,0 +1,16 @@
+// export class Librairie{
+//     #book
+//     /**
+//      * 
+//      * @param book {HTMLElement}
+//      */
+//     constructor(book){
+//         this.#book=book  
+//     }
+    
+//     Append(){
+//         document.body.append(this.#book)
+//     }
+
+// }
+

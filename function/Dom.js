@@ -1,3 +1,5 @@
+import { Librairie } from "./librairie.js";
+
 export function changeState(){
     let header=document.querySelector("header");
     //scroll animation
@@ -20,3 +22,8 @@ export function changeState(){
         }
     })
 }
+
+// export function syncLib(template){
+//     librairie=new Librairie(template)
+//     librairie.Append()
+// }
