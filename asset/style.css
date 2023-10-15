@@ -1,0 +1,322 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+body{
+    font-family: 'Tahoma',sans-serif;
+    background-color:#ffffff;
+}
+
+/* dark mode from Js */
+.darkMode{
+    background-color: black;
+    color:white;
+}
+.darkMode .placeOne p{
+    color:white;
+}
+.darkMode .head::after{
+    background-color: black;
+}
+.darkMode .nav-bar ul a{
+    color:rgba(255, 255, 255, 0.501);
+}
+.darkMode .scrol{
+    background-color: #1b1b1bf3;
+}
+.darkMode .nav-bar ul a:hover{
+    color:rgba(255, 255, 255);
+}
+.darkMode .placeOne h1 span{
+    color:black;
+}
+.darkMode input[type=text]{
+    background-color: #1b1b1bf3!important;
+    box-shadow: -1px 1px 1px rgb(90, 90, 90);
+}
+.scrol.darkMode input[type=text]{
+    background-color: black!important;
+    box-shadow: -1px 1px 1px rgb(90, 90, 90);
+}
+/* scroll effet from Js */
+.scrol{
+    background-color: rgba(245, 252, 252, 0.873);
+    box-shadow: -1px 1px 1px lightgray;
+}
+/* --------------------- */
+header{
+    height:65px;
+    /* background-color: red; */
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index: 200;
+    padding-bottom:15px;
+    padding-top:15px;
+}
+.logo span{
+    color:cadetblue; 
+    font-size: 20px;   
+}
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.nav-bar ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}
+.nav-bar ul li{
+    position: relative;
+}
+.nav-bar ul li::after{
+    content: "";
+    position: absolute;
+    display: block;
+    width:0%;
+    height: 2px;
+    background-color: cadetblue;
+    transition: .3s ease-in;
+}
+.nav-bar ul li:hover::after{
+    width:100%;
+}
+.nav-bar ul a{
+    text-decoration:none;
+    font-size: 12px;
+    font-weight: 500;
+    color:rgba(0, 0, 0, 0.501);
+}
+.nav-bar ul a:hover{
+    color: black;
+}
+.search{
+    position: relative;
+    height: 20px;
+}
+.search input{
+    width:200px;
+    height: 100%;
+    border-radius: 20px;
+    border: 1px solid lightgray;
+    padding: 5px;
+    font-size: 10px;
+}
+.search input:focus{
+    outline: none;
+}
+.search  button{
+    background: cadetblue;
+    border: none;
+    height: 80%;
+    border-radius: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: absolute;
+    right: 0;
+    top:4px;
+    color: white;
+    cursor: pointer;
+}
+.search  button:hover{
+    transform: scale(1.2);
+}
+/* .search  button span{
+    margin: 0;
+    display: inline-block;
+    font-size: 15px;
+    transform: translateX(5px);
+} */
+.mode{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    font-size: 10px;
+}
+.mode input{
+    visibility: hidden;
+}
+.mode input:checked + .btnLabel{
+    background-color: #e8ecf1;
+}
+.mode input:checked + .btnLabel::after{
+    background-color: #f3e672;
+    transform: translateX(20px);
+}
+.mode .btnLabel{
+    background-color: black;
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    left:0;
+    top:0;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 20px 20px;
+    grid-template-areas: "e" "r";
+    grid-area: r;
+    color:white;
+    font-size: 15px;
+
+}
+.mode .btnLabel::after{
+    content: '';
+    display: block;
+    width: 20px;
+    height:20px;
+    grid-area: e;
+    background-color: white;
+    border-radius: 50%;
+}
+.userConnect .ronder{
+    display: block;
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: cadetblue;
+    position:relative;
+}
+.userConnect .ronder .active{
+    display: block;
+    width:10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(31, 129, 44);
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+}
+
+.container{
+    /* width:90%; */
+    width: 1000px;
+    /* background-color: red; */
+    margin:50px auto;
+    padding: 20px;
+}
+.heroSection{
+    display:grid;
+    grid-template-columns: 400px 1fr;
+    gap: 50px;
+}
+.placeOne{
+    width: 100%;
+}
+.placeOne h1{
+    font-size: 36px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+.placeOne h1 span{
+    color: rgba(255, 255, 255, 0.877);
+    -webkit-text-stroke: 2px cadetblue;
+}
+.placeOne p{
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color:rgba(0, 0, 0, 0.877);
+    line-height: 16px;
+}
+.placeOne button{
+    background-color: cadetblue;
+    color: white;
+    padding: 10px 20px;
+    font-size: 500;
+    border: none;
+    border-radius: 10px;
+}
+.placeTwo{
+    display:block;
+    width: 200px;
+    height: 200px;
+    background-color:cadetblue;
+    transform: translateX(200px);
+    border-top-right-radius: 50px;
+    position: relative;
+}
+.placeTwo::after{
+    position: absolute;
+    content: "";
+    display:block;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(31, 129, 44);
+    right: -10px;
+    bottom: -5px;
+    border-radius: 50%;
+}
+/* main place books */
+.head{
+    background-color: inherit;
+    border-radius: 50px;
+    position: relative;
+    border: 2px solid cadetblue;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+.head::after{
+    content:"";
+    display: block;
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    right: -5px;
+    bottom: -10px;
+    transform: rotate(20deg);
+    position: absolute;
+}
+/* book item */
+.book{
+    display: flex;
+    align-items: flex-start;
+    gap:20px;
+    border: 1px solid cadetblue;
+    border-radius: 20px;
+    position: relative;
+}
+.book:hover{
+    /* transform: scale(1.1); */
+    box-shadow: -2px 3px 1px lightgray;
+}
+.book-img{
+    width: 100px;
+    height: 100px;
+    display: block;
+    background-color: cadetblue;
+    border-top-right-radius: 10px ;
+    border-bottom-right-radius:10px ;
+    /* box-shadow: 2px -3px 1px lightgray,-2px 3px 1px lightgray; */
+    box-shadow: -2px 3px 1px lightgray;
+}
+.book-containt{
+    width:300px;
+}
+.book-title{
+    margin-bottom: 10px;
+}
+.book a{
+    text-decoration: none;
+    color: cadetblue;
+    right: 10px;
+    top: 10px;;
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+.book-author{
+    font-size: 18px;
+    font-weight: bold;
+
+}

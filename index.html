@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMarket</title>
+    <link rel="stylesheet" href="./asset/style.css">
+    <script type="module"  src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">Book<span>Market</span></div>
+            <div>
+                <form action="" class="search" id="search">
+                    <input type="text" name="search" id="search" placeholder="Power of Thinking Positif">
+                    <button type="submit">></button>
+                </form>
+            </div>
+            <ul>
+                <li><a href="">Acceuil</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Log out</a></li>
+            </ul>
+            <div class="mode">
+                <input type="checkbox" id="BtnMode">
+                <label for="BtnMode" class="btnLabel"></label>
+                Change the mode
+            </div>
+            <div class="userConnect">
+                <div class="ronder">
+                    <div class="active"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="heroSection container">
+        <div class="placeOne">
+            <h1>World of Lecture is Us <br> <span>BookMarket</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                 Voluptas autem cupiditate consequuntur maiores, atque commodi 
+                 eaque distinctio doloremque est sint.
+            </p>
+            <button type="button">Sing For Premuim</button>  
+        </div>
+        <div class="placeTwo"></div>
+    </section>
+    <section class="books">
+        <div class="head container">
+            Nos livres
+        </div>
+        <div class="book container">
+            <div class="book-img" id="book-one-img"></div>
+            <div class="book-containt">
+                <h2 class="book-title" id="book-one-title">Power of Positif Thinking</h2>
+                <p class="book-description" id="book-one-description">
+                    Lorem ipsum dolor sit, amet consectetur 
+                    adipisicing elit. Asperiores, nostrum?
+                    <br><span class="book-author">Bob ARVEL</span>
+                </p>
+                <a href="">-></a>
+            </div>
+        </div>
+
+        <div class="book container">
+            <div class="book-img" id="book-two-img"></div>
+            <div class="book-containt">
+                <h2 class="book-title" id="book-two-title">Trough the Evil</h2>
+                <p class="book-description" id="book-two-description">
+                    Lorem ipsum dolor sit, amet consectetur 
+                    adipisicing elit. Asperiores, nostrum?
+                    <br><span class="book-author">Jeanci LURI</span>
+                </p>
+                <a href="">-></a>
+            </div>
+        </div>
+
+        <div class="book container">
+            <div class="book-img" id="book-three-img"></div>
+            <div class="book-containt">
+                <h2 class="book-title" id="book-three-title">The secret of Succes</h2>
+                <p class="book-description" id="book-three-description">
+                    Lorem ipsum dolor sit, amet consectetur 
+                    adipisicing elit. Asperiores, nostrum?
+                    <br><span class="book-author">Jeremie KIMPIOKA</span>
+                </p>
+                <a href="">-></a>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- <script type="module" src="app.js" defer></script> -->
+    <!-- <script type="module" >
+        import { changeState } from "./function/Dom.js";
+
+        changeState()
+    </script> -->
+</body>
+</html>
