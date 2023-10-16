@@ -1,4 +1,4 @@
-import { Librairie } from "./librairie.js";
+import { Librairie } from "./lib.js";
 
 export function changeState(){
     let header=document.querySelector("header");
@@ -22,8 +22,14 @@ export function changeState(){
         }
     })
 }
-
 // export function syncLib(template){
 //     librairie=new Librairie(template)
 //     librairie.Append()
 // }
+export function createlement(tagName,attr={}){
+    const element=document.createElement(tagName)
+    for (const [attribut,value] of Object.entries(attr)) {
+        element.setAttribute(attribut,value)
+    }
+    return element;
+}

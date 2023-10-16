@@ -11,7 +11,7 @@ body{
 /* dark mode from Js */
 .darkMode{
     background-color: black;
-    color:white;
+    color:rgba(255, 255, 255, 0.863);
 }
 .darkMode .placeOne p{
     color:white;
@@ -237,12 +237,13 @@ header{
 }
 .placeTwo{
     display:block;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     background-color:cadetblue;
     transform: translateX(200px);
     border-top-right-radius: 50px;
     position: relative;
+    box-shadow: 10px 10px 2px cadetblue;
 }
 .placeTwo::after{
     position: absolute;
@@ -254,6 +255,11 @@ header{
     right: -10px;
     bottom: -5px;
     border-radius: 50%;
+}
+.placeTwo img{
+    width:100%;
+    height: 100%;
+    border-top-right-radius: 50px;
 }
 /* main place books */
 .head{
@@ -284,6 +290,7 @@ header{
     border: 1px solid cadetblue;
     border-radius: 20px;
     position: relative;
+    transition: all .3s ease-in-out;
 }
 .book:hover{
     /* transform: scale(1.1); */
@@ -298,6 +305,11 @@ header{
     border-bottom-right-radius:10px ;
     /* box-shadow: 2px -3px 1px lightgray,-2px 3px 1px lightgray; */
     box-shadow: -2px 3px 1px lightgray;
+    overflow: hidden;
+}
+.book-img img{
+    width: 100%;
+    height: 100%;
 }
 .book-containt{
     width:300px;
@@ -319,4 +331,32 @@ header{
     font-size: 18px;
     font-weight: bold;
 
+}
+
+.none{
+    display:none;
+    transition: all .3s ease-in-out;
+}
+.book-header{
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius:100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:200px;
+    background: linear-gradient(90deg, rgba(95, 158, 160, 0.329),rgba(2, 2, 2, 0.11));
+    flex-direction: column;
+    text-align: center;
+}
+.jf-center{
+    display: flex;
+    justify-content: space-around!important;
+    align-content: center;
+    gap: 100px;
+}
+.jf-column{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }

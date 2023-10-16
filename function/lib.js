@@ -14,7 +14,7 @@ export class Librairie{
 
 }
 
-export class book{
+export class Book{
     #element
     constructor(element){
         this.#element=element
@@ -23,4 +23,3 @@ export class book{
         document.body.append(this.#element)
     }
 }
-
