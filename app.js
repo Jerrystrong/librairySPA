@@ -1,4 +1,4 @@
-import { changeState, createlement} from "./function/Dom.js";
+import { changeState, commandSize, createlement, userToken} from "./function/Dom.js";
 import { Librairie,Book } from "./function/lib.js";
 changeState()
 
@@ -7,11 +7,10 @@ let templateLib=libFromPage.content.cloneNode(true)
 const books=templateLib.querySelectorAll('.book')
 const textTemp=document.getElementById('temp-desc')
 const text=textTemp.content.cloneNode(true)
-console.log(books)
-
-function createBook(e){
-    
-}
+const paragraph=text.querySelector('p')
+const commandeSize=text.querySelector('.size')
+const commandeMarque=text.querySelector('.marque')
+const size1=commandeSize.querySelectorAll('.cmd div')
 let libs=new Librairie(templateLib)
 libs.Append() 
 for (const book of books) {
@@ -27,9 +26,6 @@ for (const book of books) {
         const bookDescription=e.currentTarget.querySelector('.book-description').cloneNode(true)
         const textContainer=document.createElement('div')
         textContainer.innerHTML=text
-        console.log(bookHeader)
-       
-
          // creation header pour book
          const headTemp=document.getElementById('book-header');
          let headBook=headTemp.content.cloneNode(true)
@@ -57,14 +53,39 @@ for (const book of books) {
 
         let bk=new Book(containerBook)
         bk.AppendBook()
-        
-        // if (typeof(libs)=={}){
-        //      libs=null
-        //      libs.Append() 
-        // }
-        // else{
-        //     libs=new Librairie(templateLib)
-        // }
-        
     })
 }
+// commande pour la lecture 
+
+commandSize(commandeSize,commandeMarque)
+size1.forEach(sizes => {
+    sizes.addEventListener('click',(e)=>{
+        let dataget=e.currentTarget.dataset.size
+        console.log(dataget)
+        // console.log(paragraph)
+        switch(dataget){
+            case '24':
+                paragraph.style.fontSize="24px"
+                break
+
+            case '14':
+                paragraph.style.fontSize="14px"
+                break
+
+            case '16':
+                paragraph.style.fontSize="16px"
+                break
+
+            case '18':
+                paragraph.style.fontSize="18px"
+                break
+
+            case '32':
+                paragraph.style.fontSize="32px"
+                break    
+        }
+    })
+});
+// user fomction 
+userToken()
+
