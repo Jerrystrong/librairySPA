@@ -77,6 +77,7 @@ export function userToken(){
         token.push(getChar(caract.length,caract))       
     }
     tokenNumber.innerHTML=token.join('')
+    compteur()
 }
 
 function getChar(lenght,composant){
@@ -85,5 +86,74 @@ function getChar(lenght,composant){
 }
 
 function compteur(){
-    
+    menuOpen()
+    let win=window
+    window.addEventListener('scroll',(e)=>{
+            console.log(e)
+            // e.preventDefault
+            // e.cancelable()
+    })
+    let compteur=document.querySelector('.compteur')
+    // alert sign 
+    let alert=document.querySelector('.userConnect .ronder div')
+    let finalMinute=5
+    let fullSecond=finalMinute*60 //equal time in second
+    /**
+     * the function update compteur to decrement variable fullSecond
+     * and update HTML with new values
+     * @returns INTEGERVARIABLE
+     */
+    function updateTime(){
+        let munite=Math.floor(fullSecond/60)
+        let second=Math.floor(fullSecond%60)
+        //changer differentes ecriture 2digit and 1digit
+        munite=munite<10?`0${munite}`:munite
+        second=second<10?`0${second}`:second
+        //update the html
+        compteur.innerText=`${munite}:${second}`
+
+        return fullSecond--
+
+    }
+    let timer=setInterval(()=>{
+        
+    //premuim account annnonce
+    const callToAction=document.getElementById('premuim')
+        updateTime()
+        fullSecond=fullSecond<0?0:fullSecond--
+        // console.log(fullSecond)
+        // console.log(callToAction)
+        // callToAction.classList.add('desable')
+         if (fullSecond==60) {
+            alert.classList.add('red')
+            alert.classList.remove('active')
+           
+        } 
+        else if(fullSecond==1){
+            callToAction.classList.add('desable')
+            callToAction.classList.remove('none')
+            document.querySelectorAll('p').forEach(p=>{
+                p.style.color='#ffffff'
+            })
+        }
+        //end to interval
+        else if(fullSecond<=-1){
+            clearInterval(timer)
+        }
+        
+
+    },1000)
+}
+
+export function menuOpen(){
+    let btnMenu=document.querySelector('.nav-open-icon')
+    let navItem=document.querySelector('.nav-bar ul')
+    let seachBar=document.querySelector('.search')
+    let modeItem=document.querySelector('.mode')
+
+    btnMenu.addEventListener('click',()=>{
+        navItem.classList.toggle('nav-item-show')
+        seachBar.classList.toggle('nav-search-show')
+        modeItem.classList.toggle('nav-mode-show')
+    })
 }

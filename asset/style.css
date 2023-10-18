@@ -6,6 +6,9 @@
 *::selection{
     background-color: #5f9ea091;
 }
+*:root{
+    --container:1000px;
+}
 body{
     font-family: 'Tahoma',sans-serif;
     background-color:#ffffff;
@@ -68,6 +71,7 @@ header{
     align-items: center;
     padding-left: 100px;
     padding-right: 100px;
+    position: relative;
 }
 .nav-bar ul{
     list-style: none;
@@ -198,8 +202,28 @@ header{
     position: absolute;
     bottom: 5px;
     right: 0;
+    animation:user 1s ease-out infinite;
 }
-/* user icon command */
+.userConnect .ronder .red {
+    display: block;
+    width:10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(245, 9, 9);
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    animation:user 1s ease-out infinite;
+}
+@keyframes user {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+/* user icon command click to iconUser*/
 #bc{
     display: none!important ;
     background-color: #5f9ea02c;
@@ -248,6 +272,13 @@ header{
 /* avoid conflit */
 .darkMode .showUser ~ #bc{
     color:black;
+}
+/* compteur  user tokken style*/
+.compteur{
+    font-weight: bold;
+}
+.nav-open-icon{
+    display: none;
 }
 .container{
     /* width:90%; */
@@ -499,4 +530,227 @@ header{
 #text::selection{
     background-color: #5f9ea091;
 }
+/* Annonce Compte premuim */
+.desable{
+    position: absolute;
+    width:100vw;
+    height: 100%;
+    background: linear-gradient(45deg,#5f9ea0dc 10%,rgba(255, 255, 255, 0.925) 80%);
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.annonce{
+    background-color: white;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    gap: 20px;
+    /* border-radius: 20px; */
+    position: relative;
+}
+.annonce::before{
+    content: '';
+    display: block;
+    width:16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: rgb(31, 129, 44);
+    position: absolute;
+    top:-5px;
+    right: -5px;
+    animation:user 1s ease-out infinite;
+}
 
+@media screen and (max-width: 1080px) {
+    .container{
+        width: 800px;
+        /* background-color: red; */
+    }
+    .heroSection{
+        grid-template-columns: 300px 1fr;
+        gap: 0px !important;
+    }
+    .placeTwo{
+        display:block;
+        width: 300px;
+        height: 300px;
+        transform: translateX(20px);
+    }
+    .placeTwo{
+        display:block;
+        width: 250px;
+        height: 250px;
+        transform: translateX(20px);
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .container{
+        width: 600px;
+    }
+    .heroSection{
+        grid-template-columns: 1fr 1fr;
+        gap: 0px !important;
+    }
+    .nav-bar ul{
+        display: none;
+    }
+    .nav-item-show{
+        display: flex!important;
+        position: absolute;
+        flex-direction: column;
+        bottom: -100px;
+        right: 100px;
+        gap: 10px !important;
+        z-index: 2000;
+        padding-left: 60px;
+    }
+    .placeTwo{
+        display:block;
+        width: 200px;
+        height: 200px;
+        transform: translateX(20px);
+    }
+    .placeOne h1{
+        font-size: 24px;
+    }
+    .userConnect .ronder{
+        width:30px;
+        height: 30px;
+    }
+    .userConnect .ronder .active{
+        bottom: 3px;
+        right: -3px;
+    }
+    .userConnect .ronder .red {
+        bottom: 3px;
+        right: -3px;
+    }
+    .nav-open-icon{display: block;cursor: pointer;}
+    .book-header{
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius:50px;
+    }
+}
+@media screen and (max-width: 750px){
+    /* annonce for tokken */
+    .desable{
+        align-items: center;
+        padding-top:100px;
+    }
+    .container{
+        width: 80%;
+    }
+    .heroSection{
+        grid-template-columns: 1fr;
+        gap: 20px !important;
+    }
+    .placeTwo{
+        display:none;
+        width: 200px;
+        height: 200px;
+        transform: translateX(300px);
+    }
+    .search{
+        display: none;
+    }
+    .nav-item-show{
+        right:50px;
+        background-color: white;
+        z-index: 2000;
+    }
+    .darkMode .nav-item-show{background-color: black;z-index: 2000;}
+    .nav-search-show{
+        display: block;
+        right: 50px!important;
+        position: absolute;
+    }
+    .search.nav-search-show{
+        top:140px;
+    }
+    .search.nav-search-show input{
+        width: 100px;
+    }
+    .nav-bar{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .jf-center{
+        flex-direction: column;
+        justify-content: center!important;
+    }
+    .book-header{
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius:30px;
+    }
+    .command{
+        flex-direction: column;
+    }
+    .marque .cmd{
+        bottom: -20px;
+        left: -150px;
+    }
+    .marque .cmd div{
+        gap:10px;
+    }    
+    .commandItem{
+        gap: 0!important;
+    }
+}
+@media screen and (max-width: 432px){
+    .container{
+        width: 80%;
+    }
+    .mode{
+        display: none;
+    }
+    .mode.nav-mode-show{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top:30px;
+        right: 50px;
+    }
+    .mode.nav-mode-show span{
+        display: none;
+    }
+    .commandBox{
+        flex-direction: column;
+        gap:0;
+        align-items: flex-start;
+    }
+    .marque .cmd{
+        bottom: -20px;
+        left: 0px;
+    }
+    .jf-column{
+        width: 100% !important;
+    }
+    .jf-center{
+        width: 100% !important;
+    }
+    .head::after{
+        content:"";
+        display: block;
+        width: 100px;
+        height: 100px;
+        background-color: white;
+        right: -5px;
+        bottom: -10px;
+    }
+    .book-containt h2{
+        font-size: 18px;
+    }
+    .book-containt p{
+        font-size: 14px!important;
+    }
+    .cmd small{
+        display: none;
+    }
+}
