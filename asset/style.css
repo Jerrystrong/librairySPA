@@ -566,7 +566,68 @@ header{
     right: -5px;
     animation:user 1s ease-out infinite;
 }
+/* form place */
+.sing-in-place{
+    background-color: #5f9ea0a8;
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index:  2000;
+    gap:20px;
+    position: absolute;
+    top:0;
+}
+.sing-in-place form.none{
+    display: none!important;
+}
+.sing-in-place form{
+    width:400px;
+    background: white;
+    padding: 30px;
+    display: grid;
+    gap:10px;
+}
+.sing-in-place form input[type=submit]{
+    border:none;
+    border-radius: 10px;
+    background-color: #5f9ea0;
+    padding: 10px;
+    color: white;
 
+}
+.form-item{
+    width: 100%;
+    height: 30px;
+    border:1px solid lightgray;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.createAccount{
+    color:#5f9ea0;
+    text-decoration: none;
+    text-decoration: underline;
+}
+.connectAccount{
+    color:#5f9ea0;
+    text-decoration: none;
+    text-decoration: underline;
+}
+.form-controle{
+    display: grid;
+}
+.form-controle .form-item{
+    width: 100%;
+    height: 30px;
+    border:1px solid lightgray;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.create-account{
+    display: none !important;
+}
 @media screen and (max-width: 1080px) {
     .container{
         width: 800px;

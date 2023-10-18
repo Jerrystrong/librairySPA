@@ -1,4 +1,5 @@
 import { changeState, commandSize, createlement, menuOpen, userToken} from "./function/Dom.js";
+import { createAccount } from "./function/form.js";
 import { Librairie,Book } from "./function/lib.js";
 changeState()
 
@@ -87,5 +88,17 @@ size1.forEach(sizes => {
     })
 });
 // user fomction 
+createAccount()
 userToken()
 
+//onclick to btn Premuim
+let btnPremuim=document.querySelectorAll('.btnBuy')
+let singinzone=document.querySelector('#sing-in-place')
+btnPremuim.forEach(btn=>{
+    btn.addEventListener('click',(e)=>{
+        singinzone.classList.add('sing-in-place')
+        document.body.style.overflow='hidden'
+        e.preventDefault()
+      })
+      
+})

@@ -1,3 +1,4 @@
+import { validationForm } from "./form.js";
 import { Librairie } from "./lib.js";
 /**
  * main function to animation on scroll and dark and kight mode 
@@ -124,6 +125,26 @@ function compteur(){
         // console.log(fullSecond)
         // console.log(callToAction)
         // callToAction.classList.add('desable')
+        // function vrai(callToAction){
+        //     if(validationForm){
+        //         callToAction.classList.add('none')
+        //         callToAction.classList.remove('desable')
+        //         document.body.style.overflow='auto'
+        //         document.querySelectorAll('p').forEach(p=>{
+        //             p.style.color='#000000'
+        //         })
+        //         clearInterval(timer)
+        //     }
+        //     else{
+        //         callToAction.classList.add('desable')
+        //         callToAction.classList.remove('none')
+        //         document.body.style.overflow='hidden'
+        //         document.querySelectorAll('p').forEach(p=>{
+        //             p.style.color='#ffffff'
+        //         })
+        //     }
+        // }
+        // vrai(callToAction)
          if (fullSecond==60) {
             alert.classList.add('red')
             alert.classList.remove('active')
@@ -131,18 +152,54 @@ function compteur(){
         } 
         else if(fullSecond==1){
             callToAction.classList.add('desable')
-            callToAction.classList.remove('none')
-            document.querySelectorAll('p').forEach(p=>{
-                p.style.color='#ffffff'
-            })
+                callToAction.classList.remove('none')
+                document.body.style.overflow='hidden'
+                document.querySelectorAll('p').forEach(p=>{
+                    p.style.color='#ffffff'
+                })
         }
         //end to interval
         else if(fullSecond<=-1){
+            if(validationForm){
+                callToAction.classList.add('none')
+                callToAction.classList.remove('desable')
+                document.body.style.overflow='auto'
+                document.querySelectorAll('p').forEach(p=>{
+                    p.style.color='#000000'
+                })
+            }
+            else{
+                callToAction.classList.add('desable')
+                callToAction.classList.remove('none')
+                document.body.style.overflow='hidden'
+                document.querySelectorAll('p').forEach(p=>{
+                    p.style.color='#ffffff'
+                })
+            }
             clearInterval(timer)
         }
         
 
     },1000)
+    // function vrai(){
+    //     if(validationForm){
+    //         callToAction.classList.add('none')
+    //         callToAction.classList.remove('desable')
+    //         document.body.style.overflow='auto'
+    //         document.querySelectorAll('p').forEach(p=>{
+    //             p.style.color='#000000'
+    //         })
+    //         clearInterval(timer)
+    //     }
+    //     else{
+    //         callToAction.classList.add('desable')
+    //         callToAction.classList.remove('none')
+    //         document.body.style.overflow='hidden'
+    //         document.querySelectorAll('p').forEach(p=>{
+    //             p.style.color='#ffffff'
+    //         })
+    //     }
+    // }
 }
 
 export function menuOpen(){

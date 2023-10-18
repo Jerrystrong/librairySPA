@@ -8,12 +8,61 @@
     <script type="module"  src="app.js" defer></script>
 </head>
 <body>
+    <div class="none" id="sing-in-place">
+        <form action="" class="connexion-place">
+            <h3>connexion</h3>
+            <div class="form-controle">
+                <input type="text" name="nom" id="nom" class="form-item" placeholder="Write your name" required/>
+            </div>
+            <div class="form-controle">
+                <input type="password" name="mot-de-passe" id="mot-de-passe" class="form-item" placeholder="Write your password" required>
+            </div>
+            <input type="submit" value="Connection"/>
+            <label><small>Create <a href="" class="createAccount">Account</a></small></label>
+        </form>
+        <form action="" method="post" class="create-account">
+            <h3>Create account</h3>
+            <div class="form-controle">
+                <input type="text" name="nom" id="nom" class="form-item" placeholder="Write your name" required/>
+            </div>
+            <div class="form-controle">
+                <input type="text" name="prenom" id="prenom" class="form-item" placeholder="Write your lastname" required/>
+            </div>
+            <div class="form-controle">
+                <input type="email" name="mail" id="mail" class="form-item" placeholder="Write your email" required>
+            </div>
+            <div class="form-controle">
+                <label for="genre">Votre genre</label>
+                <select name="genre" id="genre" required class="form-item">
+                    <option value="homme">Man</option>
+                    <option value="femme">Woman</option>
+                    <option value="prive">Privalt</option>
+                </select>
+            </div>
+            <div class="form-controle">
+                <input type="date" name="date-de-naissance" id="date-de-naissance" class="form-item" placeholder="Write your birthday" required>
+            </div>
+            <div class="form-controle">
+                <input type="password" name="mot-de-passe" id="mot-de-passe" class="form-item" placeholder="Write your password" required>
+            </div>
+            <div class="form-controle">
+                <input type="password" name="confirm-passe" id="confirm-passe" class="form-item" placeholder="Confirm your password" required>
+            </div>
+            <div class="form-controle">
+                <input type="tel" name="phone" id="phone" class="form-item" placeholder="Write your phone number" required> 
+            </div>
+            <input type="submit" value="Connection"/>
+            <label><small>Already got a <a href="" class="connectAccount">Account</a></small></label>
+        </form>
+    </div>
+
     <div class="none" id="premuim">
         <div class="annonce">
             <small>Got a Premuim Account for full Access</small>
             <button type="button" class="btnBuy">Sing For Premuim</button>  
         </div>
     </div>
+    
     <header>
         <nav class="nav-bar">
             <div class="logo">Book<span>Market</span></div>
@@ -26,7 +75,7 @@
             <ul class="nav-items">
                 <li><a href="">Acceuil</a></li>
                 <li><a href="">About</a></li>
-                <li><a href="">Log in</a></li>
+                <li><a href="" class="btnBuy" style="color:white">Log in</a></li>
             </ul>
             <div class="mode">
                 <input type="checkbox" id="BtnMode">
