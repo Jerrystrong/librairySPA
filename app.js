@@ -102,3 +102,12 @@ btnPremuim.forEach(btn=>{
       })
       
 })
+document.addEventListener('keydown',(e)=>{
+    console.log(e)
+    if(e.ctrlKey==true && e.key=='b'){
+        e.preventDefault()
+        console.log('raccourcie')
+        document.querySelector('#search').classList.toggle('clickSearch')
+        document.querySelector('#searchSuggession').classList.toggle('searchSuggession')
+    }
+})

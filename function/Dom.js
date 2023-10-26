@@ -151,8 +151,14 @@ function compteur(){
            
         } 
         else if(fullSecond==1){
-            callToAction.classList.add('desable')
+                callToAction.classList.add('desable')
                 callToAction.classList.remove('none')
+                window.scrollTo(0,0)
+                window.addEventListener('beforeunload',(e)=>{
+                    e.preventDefault()
+                    // e.returnValue('')
+                })
+                // document.body.scrollTop=10
                 document.body.style.overflow='hidden'
                 document.querySelectorAll('p').forEach(p=>{
                     p.style.color='#ffffff'
