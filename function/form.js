@@ -28,7 +28,12 @@ export function validationForm(){
         if(nom=='Jeremie' && password=='password'){
             return true
         }
+        else{
+            document.getElementById('premuim').classList.add('deseave')
+        }
+        // console.log('form envoyez')
         e.preventDefault()
+        return false
     })
     containerAccount.addEventListener('submit',(e)=>{
        let p=document.createElement('p')

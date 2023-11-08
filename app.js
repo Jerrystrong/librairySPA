@@ -1,4 +1,4 @@
-import { changeState, commandSize, createlement, menuOpen, userToken} from "./function/Dom.js";
+import { changeState, commandSize, createlement, menuOpen, recherche, userToken} from "./function/Dom.js";
 import { createAccount } from "./function/form.js";
 import { Librairie,Book } from "./function/lib.js";
 changeState()
@@ -103,7 +103,7 @@ btnPremuim.forEach(btn=>{
       
 })
 document.addEventListener('keydown',(e)=>{
-    console.log(e)
+    // console.log(e)
     if(e.ctrlKey==true && e.key=='b'){
         e.preventDefault()
         console.log('raccourcie')
@@ -111,3 +111,13 @@ document.addEventListener('keydown',(e)=>{
         document.querySelector('#searchSuggession').classList.toggle('searchSuggession')
     }
 })
+document.querySelector('#searchSuggession img').addEventListener('click',(e)=>{
+    document.querySelector('#searchSuggession').classList.remove('searchSuggession')
+    document.querySelector('#search').classList.remove('clickSearch')
+
+})
+document.querySelector('#search').addEventListener('click',()=>{
+    document.querySelector('#search').classList.toggle('clickSearch')
+    document.querySelector('#searchSuggession').classList.toggle('searchSuggession')
+})
+recherche()

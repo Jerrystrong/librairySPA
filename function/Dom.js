@@ -88,12 +88,12 @@ function getChar(lenght,composant){
 
 function compteur(){
     menuOpen()
-    let win=window
-    window.addEventListener('scroll',(e)=>{
-            console.log(e)
-            // e.preventDefault
-            // e.cancelable()
-    })
+    // let win=window
+    // window.addEventListener('scroll',(e)=>{
+    //         console.log(e)
+    //         // e.preventDefault
+    //         // e.cancelable()
+    // })
     let compteur=document.querySelector('.compteur')
     // alert sign 
     let alert=document.querySelector('.userConnect .ronder div')
@@ -122,28 +122,7 @@ function compteur(){
     const callToAction=document.getElementById('premuim')
         updateTime()
         fullSecond=fullSecond<0?0:fullSecond--
-        // console.log(fullSecond)
-        // console.log(callToAction)
-        // callToAction.classList.add('desable')
-        // function vrai(callToAction){
-        //     if(validationForm){
-        //         callToAction.classList.add('none')
-        //         callToAction.classList.remove('desable')
-        //         document.body.style.overflow='auto'
-        //         document.querySelectorAll('p').forEach(p=>{
-        //             p.style.color='#000000'
-        //         })
-        //         clearInterval(timer)
-        //     }
-        //     else{
-        //         callToAction.classList.add('desable')
-        //         callToAction.classList.remove('none')
-        //         document.body.style.overflow='hidden'
-        //         document.querySelectorAll('p').forEach(p=>{
-        //             p.style.color='#ffffff'
-        //         })
-        //     }
-        // }
+    
         // vrai(callToAction)
          if (fullSecond==60) {
             alert.classList.add('red')
@@ -153,12 +132,15 @@ function compteur(){
         else if(fullSecond==1){
                 callToAction.classList.add('desable')
                 callToAction.classList.remove('none')
+                // remettre le sroll à zero
                 window.scrollTo(0,0)
+                // arreter le chargement de la page
                 window.addEventListener('beforeunload',(e)=>{
                     e.preventDefault()
                     // e.returnValue('')
                 })
                 // document.body.scrollTop=10
+                // disparition scroll
                 document.body.style.overflow='hidden'
                 document.querySelectorAll('p').forEach(p=>{
                     p.style.color='#ffffff'
@@ -187,25 +169,6 @@ function compteur(){
         
 
     },1000)
-    // function vrai(){
-    //     if(validationForm){
-    //         callToAction.classList.add('none')
-    //         callToAction.classList.remove('desable')
-    //         document.body.style.overflow='auto'
-    //         document.querySelectorAll('p').forEach(p=>{
-    //             p.style.color='#000000'
-    //         })
-    //         clearInterval(timer)
-    //     }
-    //     else{
-    //         callToAction.classList.add('desable')
-    //         callToAction.classList.remove('none')
-    //         document.body.style.overflow='hidden'
-    //         document.querySelectorAll('p').forEach(p=>{
-    //             p.style.color='#ffffff'
-    //         })
-    //     }
-    // }
 }
 
 export function menuOpen(){
@@ -219,4 +182,65 @@ export function menuOpen(){
         seachBar.classList.toggle('nav-search-show')
         modeItem.classList.toggle('nav-mode-show')
     })
+}
+export function recherche(){
+    var listOfBooks=['power of positif thinking','the one thing','the secret of succes']
+    let inputText=document.querySelector('#search input');
+    let resultplace=document.querySelector('.resultPlace')
+    var sub=0
+    var val='';
+    let valeur=document.createElement('small')
+    let valRecherche=document.createElement('small')
+    var searchBook=[]
+    inputText.addEventListener('input',function (e){
+        val=e.currentTarget.value.trim()
+        valeur.innerText=val
+        //research of result to list of books
+        for (let book of listOfBooks){
+            if(book.startsWith(val) || book==val){
+                searchBook.push(book)
+                valRecherche.textContent='"'+searchBook.join(',')+'"'
+                var filterSearch=[]
+                for (const i of searchBook) {
+                    // let count=0
+                    // for (let index = 0; index < searchBook.length; index++) {
+                    //     if(i == searchBook[index]){
+                    //         count++
+                    //         if(count>=2){
+                    //             filterSearch.push(i)
+                    //             console.log(count)
+                    //             break
+                    //         }
+                    //     }
+                        
+                    // }
+                    let looop=filterSearch.find((element)=> element==i)
+                    console.log(looop)
+                    if(looop == undefined){
+                        filterSearch.push(i)
+                    }
+                    else{
+                        filterSearch=filterSearch
+                    }
+                    // let looop=searchBook.find((element)=> element==i)
+                    // filterSearch.push(looop)
+                }
+                console.log(filterSearch)
+
+                // console.log(searchBook)
+
+            }
+            // else{
+            //     searchBook=[]
+            // }
+        }
+    })
+    var kk=searchBook.join(',')
+    console.log(kk)
+    console.log(searchBook)
+    resultplace.append(valeur)
+    resultplace.append(valRecherche)
+    valeur.style.color='#5f9ea0a8'
+    valeur.style.fontSize='9px'
+    valeur.style.fontWeight='bold'
 }

@@ -63,6 +63,7 @@ header{
     padding-bottom:15px;
     padding-top:15px;
 }
+/* apres click ctrl + b */
 .searchSuggession{
     display: block!important;
     width: 50%;
@@ -595,6 +596,9 @@ header{
     animation:user 1s ease-out infinite;
 }
 /* form place */
+.darkMode .sing-in-place{
+    color: black;
+}
 .sing-in-place{
     background-color: #5f9ea0a8;
     width:100vw;
@@ -655,6 +659,15 @@ header{
 }
 .create-account{
     display: none !important;
+}
+.placeSearch{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.placeSearch img{
+    transform: translateX(-10px);
+    cursor: pointer;
 }
 @media screen and (max-width: 1080px) {
     .container{
