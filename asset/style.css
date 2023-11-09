@@ -74,8 +74,20 @@ header{
     top:70px;
     left: 20%;
     box-shadow: 1px 1px 2px rgba(95, 158, 160, 0.452);
+    padding: 20px;
+    overflow-y: auto;
     /* display: grid; */
 
+}
+.suggest{
+    cursor: pointer;
+    display: flex!important;
+    justify-content: space-between!important;
+    align-items: center!important;
+    padding: 10px;
+}
+.like{
+    cursor: pointer;
 }
 .searchSuggession small{
     border-bottom: 1px solid cadetblue;

@@ -191,7 +191,9 @@ export function recherche(){
     var val='';
     let valeur=document.createElement('small')
     let valRecherche=document.createElement('small')
+    // let suggest=document.createElement('small')
     var searchBook=[]
+    var filterSearch=[]
     inputText.addEventListener('input',function (e){
         val=e.currentTarget.value.trim()
         valeur.innerText=val
@@ -199,45 +201,41 @@ export function recherche(){
         for (let book of listOfBooks){
             if(book.startsWith(val) || book==val){
                 searchBook.push(book)
-                valRecherche.textContent='"'+searchBook.join(',')+'"'
-                var filterSearch=[]
+                // valRecherche.textContent='"'+searchBook.join(',')+'"' ->je prefere mettre le text un peu plus bas avec le filtre de resultat
                 for (const i of searchBook) {
-                    // let count=0
-                    // for (let index = 0; index < searchBook.length; index++) {
-                    //     if(i == searchBook[index]){
-                    //         count++
-                    //         if(count>=2){
-                    //             filterSearch.push(i)
-                    //             console.log(count)
-                    //             break
-                    //         }
-                    //     }
-                        
-                    // }
+                    
                     let looop=filterSearch.find((element)=> element==i)
-                    console.log(looop)
+                    // console.log(looop)
                     if(looop == undefined){
                         filterSearch.push(i)
                     }
                     else{
                         filterSearch=filterSearch
                     }
-                    // let looop=searchBook.find((element)=> element==i)
-                    // filterSearch.push(looop)
                 }
-                console.log(filterSearch)
-
-                // console.log(searchBook)
 
             }
-            // else{
-            //     searchBook=[]
-            // }
+            
         }
+        for (const book of filterSearch) {
+            let suggest=createlement('small',{
+                class:'suggest'
+            })
+            let like=createlement('img',{
+                src:'asset/svg/heart.svg',
+                class:'like'
+            })
+            suggest.textContent=book
+            resultplace.append(suggest)
+            suggest.append(like)
+        }
+        
     })
+    // suggest.textContent='jjjj'+filterSearch.join(',')
+    
+    // resultplace.append(suggest)
+
     var kk=searchBook.join(',')
-    console.log(kk)
-    console.log(searchBook)
     resultplace.append(valeur)
     resultplace.append(valRecherche)
     valeur.style.color='#5f9ea0a8'
