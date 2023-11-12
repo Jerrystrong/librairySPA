@@ -1,5 +1,5 @@
 import { changeState, commandSize, createlement, menuOpen, recherche, userToken} from "./function/Dom.js";
-import { createAccount } from "./function/form.js";
+import { createAccount, validationForm } from "./function/form.js";
 import { Librairie,Book } from "./function/lib.js";
 changeState()
 
@@ -27,6 +27,9 @@ for (const book of books) {
         const bookDescription=e.currentTarget.querySelector('.book-description').cloneNode(true)
         const textContainer=document.createElement('div')
         textContainer.innerHTML=text
+        // creation boutton go back
+        const btnBack=createlement('div',{class:'back'})
+        btnBack.innerText='Back to acceuil'
          // creation header pour book
          const headTemp=document.getElementById('book-header');
          let headBook=headTemp.content.cloneNode(true)
@@ -51,11 +54,41 @@ for (const book of books) {
         containerElement.append(containerElementHorizontal)
         containerBook.append(containerElement)
         containerBook.append(text)
+        containerBook.append(btnBack)
 
         let bk=new Book(containerBook)
         bk.AppendBook()
+
+        btnBack.addEventListener('click',function(){
+            document.querySelector('.heroSection').classList.remove('none')
+            this.classList.toggle('none')
+            for (const b of books) {
+                b.classList.remove('none')
+            }
+        containerBook.classList.toggle('none')
+        // headBook.classList.toggle('none')
+        head.classList.toggle('none')
+        })
+        // link acceuil
+        let btnAcceuil=document.querySelector('.back-link')
+        btnAcceuil.addEventListener('click',function(e){
+            e.preventDefault()
+            document.querySelector('.heroSection').classList.remove('none')
+            this.classList.toggle('none')
+            for (const b of books) {
+                b.classList.remove('none')
+            }
+        containerBook.classList.toggle('none')
+        // headBook.classList.toggle('none')
+        head.classList.toggle('none')
+        btnAcceuil.classList.remove('none')
+        })
+
     })
 }
+
+// comment to go back
+
 // commande pour la lecture 
 
 commandSize(commandeSize,commandeMarque)
@@ -98,10 +131,12 @@ btnPremuim.forEach(btn=>{
     btn.addEventListener('click',(e)=>{
         singinzone.classList.add('sing-in-place')
         document.body.style.overflow='hidden'
+        window.scrollTo(0,0)
         e.preventDefault()
       })
       
 })
+// raccouurcie ecran
 document.addEventListener('keydown',(e)=>{
     // console.log(e)
     if(e.ctrlKey==true && e.key=='b'){
@@ -116,8 +151,10 @@ document.querySelector('#searchSuggession img').addEventListener('click',(e)=>{
     document.querySelector('#search').classList.remove('clickSearch')
 
 })
+// click sur l'input
 document.querySelector('#search').addEventListener('click',()=>{
     document.querySelector('#search').classList.toggle('clickSearch')
     document.querySelector('#searchSuggession').classList.toggle('searchSuggession')
 })
 recherche()
+validationForm()

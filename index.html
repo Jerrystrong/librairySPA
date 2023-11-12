@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookMarket</title>
     <link rel="stylesheet" href="./asset/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script type="module"  src="app.js" defer></script>
 </head>
 <body>
@@ -12,10 +13,12 @@
         <form action="" class="connexion-place">
             <h3>connexion</h3>
             <div class="form-controle">
-                <input type="text" name="nom" id="nom" class="form-item" placeholder="Write your name" required/>
+                <input type="text" name="nom" id="nom" class="form-item" min-width="5" placeholder="Write your name" required/>
+                <label for="" class="none" id="control-nom"></label>
             </div>
             <div class="form-controle">
                 <input type="password" name="mot-de-passe" id="mot-de-passe" class="form-item" placeholder="Write your password" required>
+                <i class="fa-solid fa-eye-slash"></i>
             </div>
             <input type="submit" value="Connection"/>
             <label><small>Create <a href="" class="createAccount">Account</a></small></label>
@@ -77,14 +80,15 @@
                 </form>
             </div>
             <ul class="nav-items">
-                <li><a href="">Acceuil</a></li>
+                <li><a href="" class="back-link">Acceuil</a></li>
                 <li><a href="">About</a></li>
                 <li><a href="" class="btnBuy" style="color:white">Log in</a></li>
             </ul>
             <div class="mode">
                 <input type="checkbox" id="BtnMode">
                 <label for="BtnMode" class="btnLabel"></label>
-                <span>Change the</span>mode
+                <!-- <span>Change the</span>mode -->
+                <i class="fa-solid fa-moon"></i>
             </div>
             <div class="userConnect">
                 <div class="ronder">
@@ -102,6 +106,7 @@
                 </div>
             </div>
             <img src="asset/svg/bars.svg" alt="" class="nav-open-icon">
+            <img src="asset/svg/xmark.svg" alt="" class="none" id="nav-close-icon">
         </nav>
     </header>
     <template id="book-header"><div class="container book-header"></div></template>

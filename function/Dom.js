@@ -16,12 +16,19 @@ export function changeState(){
     })
     // mode change
     let checkMode=document.querySelector("#BtnMode");
+    let imgMode=document.querySelector('.mode i')
     checkMode.addEventListener('change',(e)=>{
         if(e.currentTarget.checked==true){
             document.body.classList.add('darkMode')
+            imgMode.classList.remove('fa-moon')
+            imgMode.classList.add('fa-sun')
+            imgMode.style.color='#f3e672'
         }
         else{
             document.body.classList.remove('darkMode')
+            imgMode.classList.add('fa-moon')
+            imgMode.classList.remove('fa-sun')
+            imgMode.style.color='#89acadd2'
         }
     })
 }
@@ -77,16 +84,32 @@ export function userToken(){
         token.push(getChar(letter.length,letter))
         token.push(getChar(caract.length,caract))       
     }
-    tokenNumber.innerHTML=token.join('')
-    compteur()
+    let strTokken=token.join('')
+    // cas ou l'utilisateur avait deja atteint le delait
+    const callToAction=document.getElementById('premuim')
+    if(localStorage.getItem('tokken') !== null){
+        token=localStorage.getItem('tokken') 
+        callToAction.classList.add('desable')
+        callToAction.classList.remove('none')
+        window.scrollTo(0,0)
+    }
+    else{
+        token=strTokken
+    }
+    // tokenNumber.innerHTML=token.join('')
+    tokenNumber.innerHTML=token
+    compteur(strTokken)
 }
 
 function getChar(lenght,composant){
     const element=Math.floor(Math.random()*lenght)
     return composant[element];
 }
-
-function compteur(){
+/**
+ * 
+ * @param {string} t 
+ */
+function compteur(t){
     menuOpen()
     // let win=window
     // window.addEventListener('scroll',(e)=>{
@@ -145,6 +168,15 @@ function compteur(){
                 document.querySelectorAll('p').forEach(p=>{
                     p.style.color='#ffffff'
                 })
+                
+            if(localStorage.getItem('tokken') === t){
+                callToAction.classList.add('desable')
+                callToAction.classList.remove('none')
+                window.scrollTo(0,0)
+            }
+            else{
+                localStorage.setItem('tokken',t)
+            }
         }
         //end to interval
         else if(fullSecond<=-1){
@@ -176,11 +208,25 @@ export function menuOpen(){
     let navItem=document.querySelector('.nav-bar ul')
     let seachBar=document.querySelector('.search')
     let modeItem=document.querySelector('.mode')
+    let closeMenu=document.querySelector('#nav-close-icon')
+
 
     btnMenu.addEventListener('click',()=>{
         navItem.classList.toggle('nav-item-show')
         seachBar.classList.toggle('nav-search-show')
         modeItem.classList.toggle('nav-mode-show')
+        btnMenu.classList.add('none')
+        btnMenu.classList.remove('nav-open-icon')
+        closeMenu.classList.add('nav-close-icon')
+        closeMenu.classList.remove('none')
+    })
+    closeMenu.addEventListener('click',()=>{
+        btnMenu.classList.add('nav-open-icon')
+        btnMenu.classList.remove('none')
+        navItem.classList.remove('nav-item-show')
+        seachBar.classList.remove('nav-search-show')
+        modeItem.classList.remove('nav-mode-show')
+        closeMenu.classList.add('none')
     })
 }
 export function recherche(){
@@ -190,13 +236,13 @@ export function recherche(){
     var sub=0
     var val='';
     let valeur=document.createElement('small')
-    let valRecherche=document.createElement('small')
+    // let valRecherche=document.createElement('small')
     // let suggest=document.createElement('small')
     var searchBook=[]
     var filterSearch=[]
     inputText.addEventListener('input',function (e){
         val=e.currentTarget.value.trim()
-        valeur.innerText=val
+        valeur.innerText= `here is some suggestion below for the word "${val}" you taped `
         //research of result to list of books
         for (let book of listOfBooks){
             if(book.startsWith(val) || book==val){
@@ -237,7 +283,7 @@ export function recherche(){
 
     var kk=searchBook.join(',')
     resultplace.append(valeur)
-    resultplace.append(valRecherche)
+    // resultplace.append(valRecherche)
     valeur.style.color='#5f9ea0a8'
     valeur.style.fontSize='9px'
     valeur.style.fontWeight='bold'

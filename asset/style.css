@@ -211,6 +211,7 @@ header{
     grid-area: r;
     color:white;
     font-size: 15px;
+    cursor: pointer;
 
 }
 .mode .btnLabel::after{
@@ -221,6 +222,11 @@ header{
     grid-area: e;
     background-color: white;
     border-radius: 50%;
+}
+.mode i{
+    font-size: 16px;
+    color:#c8ddddd2;
+    cursor: pointer;
 }
 .userConnect .ronder{
     display: block;
@@ -324,6 +330,22 @@ header{
     /* background-color: red; */
     margin:50px auto;
     padding: 20px;
+}
+/* command to go back */
+.back{
+    cursor: pointer;
+    width: fit-content;
+    padding: 10px 20px;
+    border: 1px solid #5f9ea09f;
+    border-radius: 20px;
+    position: fixed;
+    top:80px;
+    right: 20px;
+    font-size: 12px;
+    z-index: 2000;
+}
+.move-resize{
+    transform: translateY(50px)!important;
 }
 .heroSection{
     display:grid;
@@ -457,7 +479,7 @@ header{
 }
 
 .none{
-    display:none;
+    display: none !important;;
     transition: all .3s ease-in-out;
 }
 .book-header{
@@ -615,7 +637,7 @@ header{
     background-color: #5f9ea0a8;
     width:100vw;
     height:100vh;
-    display: flex;
+    display: flex!important;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -623,6 +645,9 @@ header{
     gap:20px;
     position: absolute;
     top:0;
+}
+.control-nom{
+    font-size: 14px;
 }
 .sing-in-place form.none{
     display: none!important;
@@ -661,6 +686,17 @@ header{
 }
 .form-controle{
     display: grid;
+    position: relative;
+}
+.form-controle i{
+    position: absolute;
+    right: 5px;
+    top:7px;
+    color:#5f9ea080;
+    cursor: pointer;
+}
+.form-controle i:hover{
+    color:#5f9ea0;
 }
 .form-controle .form-item{
     width: 100%;
@@ -747,6 +783,10 @@ header{
         right: -3px;
     }
     .nav-open-icon{display: block;cursor: pointer;}
+    .nav-close-icon{display: block;cursor: pointer;}    
+    .none{
+        display: none;
+    }
     .book-header{
         border-bottom-left-radius: 50px;
         border-bottom-right-radius:50px;
@@ -791,6 +831,9 @@ header{
     .search.nav-search-show input{
         width: 100px;
     }
+    .searchSuggession{
+        transform: translateX(-50px);
+    }
     .nav-bar{
         padding-left: 50px;
         padding-right: 50px;
@@ -815,6 +858,15 @@ header{
     }    
     .commandItem{
         gap: 0!important;
+    }
+    .back{
+        position: fixed;
+        top:120px;
+        left: 40px;
+        font-size: 11px;
+        z-index: 2000;
+        background-color: white;
+        padding: 10px;
     }
 }
 @media screen and (max-width: 432px){
