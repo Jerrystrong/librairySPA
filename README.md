@@ -10,3 +10,5 @@ form validation clientSide and many good feature
 The App is for librairie on line and control tokken for user
 hope you'll find interesting
 and make me know by feed back  
+live of site 
+https://jerrystrong.github.io/librairySPA/
